@@ -1,0 +1,19 @@
+<h2>My Items</h2>
+<div>
+    <label>TODO:</label> <input #todo/>
+    <button (click)="add(todo.value); todo.value=''">
+        Add
+    </button>
+</div>
+<div>
+    <ul class="items">
+        <li *ngFor="let item of items"
+            [class.selected]="item === selectedItem"
+            (click)="onSelect(item)">
+            <span class="badge"></span> <!-- {{item.priority}}</span> -->
+            {{item.todo}}
+        <button class="delete"
+            (click)="delete(item)">x</button>
+        </li>
+    </ul>
+</div>
